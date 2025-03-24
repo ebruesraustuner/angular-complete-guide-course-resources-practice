@@ -20,9 +20,22 @@ export class TasksComponent {
     return this.tasks.filter((task) => task.userId === this.selectedUser.id)
   }
 
+  constructor() {
+    const tasks = localStorage.getItem('tasks');
+
+    if(tasks) {
+      this.tasks = JSON.parse(tasks);
+    }
+  }
+
+  private saveTasks() {
+    localStorage.setItem('tasks', JSON.stringify(this.tasks))
+  }
+
   onCompleteTask(id:string) {
     console.log('id', id)
     this.tasks = this.tasks.filter((task) => task.id !== id);
+    this.saveTasks();
 
   }
 
@@ -45,5 +58,6 @@ export class TasksComponent {
     })
     console.log('tasks', this.tasks)
     this.isAddingTask = false;
+    this.saveTasks();
   } 
 }

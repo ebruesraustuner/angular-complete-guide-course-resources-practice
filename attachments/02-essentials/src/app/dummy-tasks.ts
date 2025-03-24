@@ -10,7 +10,7 @@ export const dummyTasks = [
   {
     id: 'tx',
     userId: 'u1',
-    title: 'Master Angular',
+    title: 'Master to Master Angular',
     summary:
       'Learn all the basic and advanced features of Svelte & how to apply them.',
     dueDate: '2025-12-31',
